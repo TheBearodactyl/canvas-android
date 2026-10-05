@@ -104,15 +104,15 @@ object FileUtils {
 
     }
 
-@IntegerRes
-fun getFileIcon(filename: String, contentType: String): Int =
-    when {
-        contentType.startsWith("image/") -> R.drawable.ic_image
-        contentType.startsWith("video/") -> R.drawable.ic_media
-        contentType.startsWith("audio/") -> R.drawable.ic_audio
-        else -> when (filename.substringAfterLast('.').lowercase()) {
-            "doc", "docx", "txt", "rtf", "pdf", "xls" -> R.drawable.ic_document
-            else -> R.drawable.ic_attachment
+    @IntegerRes
+    fun getFileIcon(filename: String, contentType: String): Int =
+        when {
+            contentType.startsWith("image/") -> R.drawable.ic_image
+            contentType.startsWith("video/") -> R.drawable.ic_media
+            contentType.startsWith("audio/") -> R.drawable.ic_audio
+            else -> when (filename.substringAfterLast('.').lowercase()) {
+                "doc", "docx", "txt", "rtf", "pdf", "xls" -> R.drawable.ic_document
+                else -> R.drawable.ic_attachment
+            }
         }
-    }
 }
